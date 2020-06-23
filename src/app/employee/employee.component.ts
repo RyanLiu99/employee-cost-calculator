@@ -14,16 +14,9 @@ import { Subscription } from 'rxjs';
 })
 export class EmployeeComponent implements OnInit, OnDestroy {
 
-  private _route: ActivatedRoute;
-
   message: string;
   empForm: FormGroup;
-  private _empId: number;
   private mapSubscription: Subscription;
-
-  get empId(): number {
-    return this._empId;
-  };
 
   get children() {
     return this.empForm.get('children') as FormArray;
@@ -50,9 +43,9 @@ export class EmployeeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.mapSubscription =this._route.paramMap.subscribe(params => {
-      this._empId = +params.get('empId');
+      let empId = +params.get('empId');
 
-      if (this._empId === 0) {
+      if (empId === 0) {
         this.empForm = this.fb.group({
           id: 0,
           name: ['', Validators.required],
@@ -61,7 +54,7 @@ export class EmployeeComponent implements OnInit, OnDestroy {
         });
 
       } else {
-       this.employeeService.getEmployee(this._empId).then(emp => {
+       this.employeeService.getEmployee(empId).then(emp => {
           this.empForm = this.fb.group({
             id: emp.id,
             spouseName:emp.spouseName,

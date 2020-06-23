@@ -22,7 +22,7 @@ export class EmployeeService {
       return Promise.reject("Employee is not provided when attempt to remove it");
     }
 
-    if (employee.id === 0) { //add new employee
+    if (!employee.id) { //add new employee
       return this.addEmployee(employee);
     } else {
       return this.updateEmployee(employee)
@@ -75,7 +75,7 @@ export class EmployeeService {
 
   //fake logic
   private isSameEmployee(employee1: Employee, employee2: Employee): boolean {
-    return employee1.name == employee2.name;
+    return employee1.name?.toLowerCase() == employee2.name?.toLowerCase();
   }
 
   private populateMockData() {
