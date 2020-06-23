@@ -20,7 +20,8 @@ import { EmployeeComponent } from './employee/employee.component';
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: 'employeeList', component: EmployeeListComponent },
-      { path: 'employee/:empId', component: EmployeeComponent}
+      { path: 'employee/:empId', component: EmployeeComponent},
+      { path: '**',   component: EmployeeListComponent}
     ])
   ],
   providers: [],
