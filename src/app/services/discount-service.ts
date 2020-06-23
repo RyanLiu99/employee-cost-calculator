@@ -5,7 +5,7 @@ import { DiscountRule } from '../models/discount-rule';
   providedIn: 'root'
 })
 export class DiscountService {
-  private readonly discountRules : DiscountRule[];
+  private readonly discountRules: DiscountRule[];
 
   constructor() {
     this.discountRules = [
@@ -15,11 +15,11 @@ export class DiscountService {
   }
 
   //TODO: better use Person so can apply other rules
-  public applyDiscount(name: string, cost: number) : number {
-    let result  = cost;
-     this.discountRules.forEach(r => {
-        result = r.applyDiscount(name, result);
-     });
-     return result;
+  public applyDiscount(name: string, cost: number): number {
+    let result = cost;
+    this.discountRules.forEach(r => {
+      result = r.applyDiscount(name, result);
+    });
+    return result;
   }
 }

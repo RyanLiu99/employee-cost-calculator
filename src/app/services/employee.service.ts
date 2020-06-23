@@ -22,14 +22,14 @@ export class EmployeeService {
       return Promise.reject("Employee is not provided when attempt to remove it");
     }
 
-    if(employee.id === 0){ //add new employee
+    if (employee.id === 0) { //add new employee
       return this.addEmployee(employee);
     } else {
       return this.updateEmployee(employee)
     }
   }
 
-  private addEmployee(employee: Employee) : Promise<string> {
+  private addEmployee(employee: Employee): Promise<string> {
     if (!!this.employees.find(e => this.isSameEmployee(employee, e))) {
       return Promise.reject(`Employee ${employee.toString()} already exists!`);
     } else {
@@ -39,14 +39,14 @@ export class EmployeeService {
     }
   }
 
-  private updateEmployee(employee: Employee) : Promise<string> {
-     let existingEmployee = this.employees.find(emp => emp.id === employee.id);
-     if(!existingEmployee) {
-       return Promise.reject(`Employee with Id ${employee.id} does not exist.`); //TODO: not show ID to end user
-     } else {
-      this.employees[employee.id -1] = employee; //hack.. should update serve
+  private updateEmployee(employee: Employee): Promise<string> {
+    let existingEmployee = this.employees.find(emp => emp.id === employee.id);
+    if (!existingEmployee) {
+      return Promise.reject(`Employee with Id ${employee.id} does not exist.`); //TODO: not show ID to end user
+    } else {
+      this.employees[employee.id - 1] = employee; //hack.. should update serve
       return Promise.resolve("Employee updated.");
-     }
+    }
   }
 
   //fake initial data
@@ -59,7 +59,7 @@ export class EmployeeService {
 
     if (employees.length === 1) {
       return Promise.resolve(employees[0]);
-    } else if(employees.length === 0){
+    } else if (employees.length === 0) {
       return Promise.reject(`Employee with Id ${empId} does not exist!`);
     } else {
       return Promise.reject(`Error!! There are multiple employees with Id ${empId}!`);
