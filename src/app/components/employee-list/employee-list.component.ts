@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Employee } from '../models/Employee';
-import { EmployeeService } from '../services/employee.service';
-import { CostCalculateService } from '../services/cost-calculate-service';
 import { Subscription } from 'rxjs';
+import { Employee } from 'src/app/models/Employee';
+import { EmployeeService } from 'src/app/services/employee.service';
+import { CostCalculateService } from 'src/app/services/cost-calculate-service';
 
 @Component({
   selector: 'app-employee-list',

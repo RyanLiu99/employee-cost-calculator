@@ -4,9 +4,9 @@ import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EmployeeComponent } from './employee/employee.component';
+import { EmployeeListComponent } from './components/employee-list/employee-list.component';
+import { EmployeeComponent } from './components/employee/employee.component';
 @NgModule({
   declarations: [
     AppComponent,
