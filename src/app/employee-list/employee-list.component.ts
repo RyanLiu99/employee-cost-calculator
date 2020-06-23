@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Employee } from '../models/Employee';
 import { EmployeeService } from '../services/employee.service';
-import { CostCalculateService } from '../services/costCalculate-service';
+import { CostCalculateService } from '../services/cost-calculate-service';
 import { Subscription } from 'rxjs';
 
 @Component({
